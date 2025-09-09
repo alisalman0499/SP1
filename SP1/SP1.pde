@@ -5,6 +5,7 @@ Group groupD;
 
 void setup(){
   size(900, 500);
+  //Input ("Group Name", startX, startY, color)
   groupA = new Group("Group A", 0, 0, 255);
   groupB = new Group("Group B", width/2, 0, 255);
   groupC = new Group("Group C", 0, height/2, 255);
