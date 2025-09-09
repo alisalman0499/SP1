@@ -9,8 +9,11 @@ class Group {
   String groupName; // Gruppenavn bruges senere
   color c; //Lige nu farver den selve rektanglerne men skal bruges til at vise
            // gruppefarve
+  int firstX;
+  int firstY;
   
-  Group(String tempName,int tempX, int tempY, color tempC) {
+  //Gruppe constructur
+  Group(String tempName,int tempX, int tempY) {
     groupName = tempName;
     border = 10;
     startX = tempX + border;
@@ -18,11 +21,22 @@ class Group {
     startY = tempY + y_offset;
     w = 430;
     h = 40;
-    c = tempC;
+    firstX = tempX;
+    firstY = tempY;
   }
   // Tegner/Viser rektanglerne
   void display() {
+    // If betingelse til at farve grupperne
+    if (firstY < height / 2) {
+      fill(0, 255, 255);
+    } else {
+      fill(255, 255, 0);
+    }
+    // Sætter teksten i centrum vertikalt og horisontalt
+    textAlign(CENTER, CENTER);
+    text(groupName, firstX, firstY, width / 2, h);
     //For loop til at tegne rektangler
+    fill(255);
     for (int i = 0; i < 4; i++){
       // i * (h + border), tilføjer margin mellem rektanglerne
       rect(startX, startY + i * (h + border), w, h);
