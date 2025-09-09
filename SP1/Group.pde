@@ -11,6 +11,7 @@ class Group {
            // gruppefarve
   int firstX;
   int firstY;
+  PFont myFont;
   
   //Gruppe constructur
   Group(String tempName,int tempX, int tempY) {
@@ -34,6 +35,11 @@ class Group {
     }
     // Sætter teksten i centrum vertikalt og horisontalt
     textAlign(CENTER, CENTER);
+    // Lavet en font
+    myFont = createFont("Calibri Bold", 22.5);  
+    // Loader fonten
+    textFont(myFont);
+    // Displayer teksten og sætter koordinater
     text(groupName, firstX, firstY, width / 2, h);
     //For loop til at tegne rektangler
     fill(255);
