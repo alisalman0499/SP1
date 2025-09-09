@@ -14,7 +14,7 @@ void setup(){
 
 void draw(){
   // Baggrundsfarve
-  background(49, 15, 153);
+  background(46, 46, 69);
   // Tegn linjer der splitter grupperne
   stroke(255);
   // Vandret linje
