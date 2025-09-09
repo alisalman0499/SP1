@@ -11,7 +11,7 @@ class Group {
   color c; //Bruges til at farve grupperne
   int firstX;
   int firstY;
-  float rectX;
+  float rectX; //Hvide rektangler tegnes ud fra denne værdi
   float rectY;
   PFont myFont;
   
