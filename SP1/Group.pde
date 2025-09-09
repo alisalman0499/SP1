@@ -22,9 +22,10 @@ class Group {
   }
   // Tegner/Viser rektanglerne
   void display() {
-    rect(startX, startY, w, h);
-    rect(startX, startY + h + 10, w, h);
-    rect(startX, startY + h * 2 + 20, w, h);
-    rect(startX, startY + h * 3 + 30, w, h);
+    //For loop til at tegne rektangler
+    for (int i = 0; i < 4; i++){
+      // i * (h + border), tilføjer margin mellem rektanglerne
+      rect(startX, startY + i * (h + border), w, h);
+    }
   }
 }
