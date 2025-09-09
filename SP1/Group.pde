@@ -29,9 +29,11 @@ class Group {
   void display() {
     // If betingelse til at farve grupperne
     if (firstY < height / 2) {
-      fill(0, 255, 255);
+      c = color(0, 255, 255);
+      fill(c);
     } else {
-      fill(255, 255, 0);
+      c = color(255, 255, 0);
+      fill(c);
     }
     // Sætter teksten i centrum vertikalt og horisontalt
     textAlign(CENTER, CENTER);
@@ -42,10 +44,14 @@ class Group {
     // Displayer teksten og sætter koordinater
     text(groupName, firstX, firstY, width / 2, h);
     //For loop til at tegne rektangler
-    fill(255);
     for (int i = 0; i < 4; i++){
+      //Skifter farve for rektangler til hvid
+      fill(255);
       // i * (h + border), tilføjer margin mellem rektanglerne
       rect(startX, startY + i * (h + border), w, h);
+      // Tegner lille rektangel for enden til at indikere gruppe
+      fill(c);
+      rect(startX + w - 20, startY + i * (h + border), 20, h);
     }
   }
 }
