@@ -48,6 +48,7 @@ class Group {
       rect(rectX + w - 15, rectY + margin, 15, h);
       countries[i + countingIndex] = new Country(names[i + countingIndex], rectX, rectY + margin);
       countries[i + countingIndex].display();
+      countries[i + countingIndex].displayText();
     }
   }
 }
