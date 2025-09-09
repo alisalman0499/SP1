@@ -14,14 +14,17 @@ class Group {
   float rectX; //Hvide rektangler tegnes ud fra denne værdi
   float rectY;
   PFont myFont;
+  int countingIndex;
+  
   
   //Gruppe constructur
-  Group(String tempName,int tempX, int tempY) {
+  Group(String tempName,int tempX, int tempY, int counNum) {
     groupName = tempName;
     firstX = tempX;
     firstY = tempY;
     rectX = firstX + border;
     rectY = firstY + y_offset;
+    countingIndex = counNum;
   }
   // Tegner/Viser rektanglerne
   void display() {
@@ -35,6 +38,7 @@ class Group {
     myFont = createFont("Calibri Bold", 22.5);  // Lavet en font
     textFont(myFont); // Loader fonten
     text(groupName, firstX, firstY, width / 2, h); // Viser tekst og sætter koordinater
+    
     for (int i = 0; i < 4; i++){ //For loop til at tegne rektangler
       fill(255); //Skifter farve for rektangler til hvid
       int margin = i * (h + border); // tilføjer "mellemrum" mellem rektanglerne
@@ -42,6 +46,8 @@ class Group {
       // Tegner lille rektangel for enden til at indikere gruppe
       fill(c);
       rect(rectX + w - 15, rectY + margin, 15, h);
+      countries[i + countingIndex] = new Country(names[i + countingIndex], rectX, rectY + margin);
+      countries[i + countingIndex].display();
     }
   }
 }
