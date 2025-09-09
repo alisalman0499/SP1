@@ -1,15 +1,12 @@
-Group groupA;
-Group groupB;
-Group groupC;
-Group groupD;
+Group [] groups = new Group[4];
 
 void setup(){
   size(900, 500);
   //Input ("Group Name", startX, startY)
-  groupA = new Group("GROUP A", 0, 0);
-  groupB = new Group("GROUP B", 0, height/2);
-  groupC = new Group("GROUP C", width/2, 0);
-  groupD = new Group("GROUP D", width/2, height/2);
+  groups[0] = new Group("GROUP A", 0, 0);
+  groups[1] = new Group("GROUP B", 0, height/2);
+  groups[2] = new Group("GROUP C", width/2, 0);
+  groups[3] = new Group("GROUP D", width/2, height/2);
 }
 
 void draw(){
@@ -21,11 +18,9 @@ void draw(){
   line(width/2, 0, width/2, height);
   //Lodret linje
   line(0, height/2, width, height/2);
-  groupA.display();
-  groupB.display();
-  groupC.display();
-  groupD.display();
-  
+  for (int i = 0; i < groups.length; i++){
+    groups[i].display();
+  }
   
   
   
