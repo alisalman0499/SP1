@@ -1,57 +1,47 @@
 class Group {
   // Initialiser variabler
-  int startX; // X-startværdi for gruppen
-  float startY; // Y-startværdi for gruppen
-  int w; // Bredde for de hvide rektangler
-  int h; // Højde for rektanglerne
-  int border; // Border/Ramme værdien
-  float y_offset; // Offset for y så man tegner de hvide rektangler længere inde
+  
+  int border = 10; // Border/Ramme værdien
+  int w = width / 2 - border * 2; // Bredde for de hvide rektangler
+  int h = 40; // Højde for rektanglerne
+  float y_offset = 42.5; /* Offset for y så man tegner de hvide rektangler 
+  længere inde */
+  
   String groupName; // Gruppenavn bruges senere
-  color c; //Lige nu farver den selve rektanglerne men skal bruges til at vise
-           // gruppefarve
+  color c; //Bruges til at farve grupperne
   int firstX;
   int firstY;
+  float rectX;
+  float rectY;
   PFont myFont;
   
   //Gruppe constructur
   Group(String tempName,int tempX, int tempY) {
     groupName = tempName;
-    border = 10;
-    startX = tempX + border;
-    y_offset = 42.5;
-    startY = tempY + y_offset;
-    w = 430;
-    h = 40;
     firstX = tempX;
     firstY = tempY;
+    rectX = firstX + border;
+    rectY = firstY + y_offset;
   }
   // Tegner/Viser rektanglerne
   void display() {
-    // If betingelse til at farve grupperne
-    if (firstY < height / 2) {
-      c = color(0, 255, 255);
-      fill(c);
+    if (firstY < height / 2) { // If betingelse til at farve grupperne
+      c = color(0, 255, 255); // Gemmer farven så vi kan bruge den senere
     } else {
       c = color(255, 255, 0);
-      fill(c);
     }
-    // Sætter teksten i centrum vertikalt og horisontalt
-    textAlign(CENTER, CENTER);
-    // Lavet en font
-    myFont = createFont("Calibri Bold", 22.5);  
-    // Loader fonten
-    textFont(myFont);
-    // Displayer teksten og sætter koordinater
-    text(groupName, firstX, firstY, width / 2, h);
-    //For loop til at tegne rektangler
-    for (int i = 0; i < 4; i++){
-      //Skifter farve for rektangler til hvid
-      fill(255);
-      // i * (h + border), tilføjer margin mellem rektanglerne
-      rect(startX, startY + i * (h + border), w, h);
+    fill(c);
+    textAlign(CENTER, CENTER); // Sætter teksten i centrum vertikalt og horisontalt
+    myFont = createFont("Calibri Bold", 22.5);  // Lavet en font
+    textFont(myFont); // Loader fonten
+    text(groupName, firstX, firstY, width / 2, h); // Viser tekst og sætter koordinater
+    for (int i = 0; i < 4; i++){ //For loop til at tegne rektangler
+      fill(255); //Skifter farve for rektangler til hvid
+      int margin = i * (h + border); // tilføjer "mellemrum" mellem rektanglerne
+      rect(rectX, rectY + margin, w, h);
       // Tegner lille rektangel for enden til at indikere gruppe
       fill(c);
-      rect(startX + w - 20, startY + i * (h + border), 20, h);
+      rect(rectX + w - 15, rectY + margin, 15, h);
     }
   }
 }
