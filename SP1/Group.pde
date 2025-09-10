@@ -46,9 +46,10 @@ class Group {
       // Tegner lille rektangel for enden til at indikere gruppe
       fill(c);
       rect(rectX + w - 15, rectY + margin, 15, h);
-      countries[i + countingIndex] = new Country(names[i + countingIndex], rectX, rectY + margin);
-      countries[i + countingIndex].display();
-      countries[i + countingIndex].displayText();
+      int j = i + countingIndex;
+      countries[j] = new Country(names[j], rectX, rectY + margin);
+      countries[j].display();
+      countries[j].displayText();
     }
   }
 }
