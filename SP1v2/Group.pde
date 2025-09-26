@@ -1,8 +1,8 @@
 class Group {
   // Initialiser variabler
   
-  int border = 10; // Border/Ramme værdien
-  int w = width / 2 - border * 2; // Bredde for de hvide rektangler
+  float border = width * 10/900; // Border/Ramme værdien
+  float w = width / 2 - border * 2; // Bredde for de hvide rektangler
   float h = height * 0.08; // Højde for rektanglerne 40/500 = 0.08
   float y_offset = height * 0.085; /* Offset for y så man tegner de hvide rektangler 
   længere inde (42.5 / 500) = 0.085*/

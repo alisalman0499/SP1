@@ -13,7 +13,13 @@ class Country {
   }
   void display(){
     //skaleringsværdier er sat i parentes så det er lidt mere overskueligt
-    image(photo, x - 1, y, (width * 8/90), (height * 0.081)); 
+    image(photo, x - (width * 1/900), y + (height * 0.25/500), 
+    (width * 8/90), (height * 0.081)); 
+    /* x - (width * 1/900) er der i stedet for bare x 
+        for at sørge for der ikke er nogle hvide streger
+        mellem billedet og det hvide rektangel
+       Det samme gælder for y + (height * 0.25/500)
+    */
   }
   void displayText(){
     fill(46, 46, 69);

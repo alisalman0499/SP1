@@ -7,7 +7,7 @@ String[] names = { "russia", "saudiarabia", "egypt", "uruguay",
 
 
 void setup(){
-  size(900, 500);
+  size(900, 500); //max værdi for min bærbar på bredde er 1400, brug 777 som højde
   for (int i = 0; i < names.length; i++) {
     countries[i] = new Country(names[i], 0, 0); 
   }
