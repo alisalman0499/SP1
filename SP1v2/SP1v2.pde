@@ -1,8 +1,6 @@
-public int mWidth = 900; //Hovedprogrammet får en main Width værdi istedet
-public int mHeight = 500; //main Height.
-public int footer = height * 75/500;
-/* bruger disse værdier istedet så programmet ikke bliver ødelagt
-   når vi tilføjer ekstra plads og knapper nede i bunden. */
+public int mHeight; //Hovedprogrammet får en mainHeight værdi istedet
+/* bruger main Height som så hovedprogrammet ikke bliver ødelagt når
+footeren bliver tilføjet */
 Group [] groups = new Group[4];
 Country[] countries = new Country[16];
 String[] names = { "russia", "saudiarabia", "egypt", "uruguay", 
