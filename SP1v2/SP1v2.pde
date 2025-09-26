@@ -1,3 +1,5 @@
+int mWidth = 900;
+int mHeight = 500;
 Group [] groups = new Group[4];
 Country[] countries = new Country[16];
 String[] names = { "russia", "saudiarabia", "egypt", "uruguay", 
@@ -5,9 +7,17 @@ String[] names = { "russia", "saudiarabia", "egypt", "uruguay",
 "france", "australia", "peru", "denmark",
 "argentina", "iceland", "croatia", "nigeria"};
 
+/* As of Processing 3.0, to use variables as the parameters to size() function, 
+place the size() function within the settings() function (instead of setup()). 
+There is more information about this on the settings() reference page.
+- https://processing.org/reference/size_.html */
+
+void settings(){
+  size(mWidth, mHeight); /* max værdi for min bærbar på bredde er 1400,
+  brug 777 som højde*/
+}
 
 void setup(){
-  size(900, 500); //max værdi for min bærbar på bredde er 1400, brug 777 som højde
   for (int i = 0; i < names.length; i++) {
     countries[i] = new Country(names[i], 0, 0); 
   }
