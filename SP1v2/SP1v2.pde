@@ -28,10 +28,7 @@ void setup(){
   groups[1] = new Group("GROUP B", 0, mHeight/2, 4);
   groups[2] = new Group("GROUP C", width/2, 0, 8);
   groups[3] = new Group("GROUP D", width/2, mHeight/2, 12);
-}
-
-void draw(){
-  // Baggrundsfarve
+    // Baggrundsfarve
   background(46, 46, 69);
   // Tegn linjer der splitter grupperne
   stroke(255);
@@ -39,7 +36,15 @@ void draw(){
   for (int i = 0; i < groups.length; i++){
     groups[i].display();
   }
-  
+}
+
+void draw(){
+
+  Button button = new Button(25, mHeight + (height - mHeight) * 1/4, 400, 50);
+  button.drawButtonRect("Randomiser");
+  if (button.isHovering()){
+    button.hoverEffect();
+  }
   
 }
 
