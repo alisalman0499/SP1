@@ -7,6 +7,7 @@ String[] names = { "russia", "saudiarabia", "egypt", "uruguay",
 "portugal", "spain", "morocco", "iran", 
 "france", "australia", "peru", "denmark",
 "argentina", "iceland", "croatia", "nigeria"};
+Button button;
 
 /* As of Processing 3.0, to use variables as the parameters to size() function, 
 place the size() function within the settings() function (instead of setup()). 
@@ -28,6 +29,7 @@ void setup(){
   groups[1] = new Group("GROUP B", 0, mHeight/2, 4);
   groups[2] = new Group("GROUP C", width/2, 0, 8);
   groups[3] = new Group("GROUP D", width/2, mHeight/2, 12);
+  button = new Button(25, mHeight + (height - mHeight) * 1/4, 400, 50);
     // Baggrundsfarve
   background(46, 46, 69);
   // Tegn linjer der splitter grupperne
@@ -39,8 +41,7 @@ void setup(){
 }
 
 void draw(){
-
-  Button button = new Button(25, mHeight + (height - mHeight) * 1/4, 400, 50);
+  
   button.drawButtonRect("Randomiser");
   if (button.isHovering()){
     button.hoverEffect();
@@ -55,4 +56,10 @@ public void drawLines(){
   line(0, mHeight/2, width, mHeight/2);
     //Tegner vandret linje i bunden af hovedprogrammet
   line(0, mHeight, width, mHeight);
+}
+
+void mousePressed(){
+  if (button.isHovering()){
+    button.mouseClicked();
+  }
 }

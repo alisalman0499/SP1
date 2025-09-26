@@ -30,4 +30,13 @@ class Button {
     fill(255, 255, 255, 90);
     rect(x, y, w, h);
   }
+  
+  void mouseClicked(){
+    if (isHovering()){
+      randomise();
+    }
+  }
+  void randomise(){
+    println("boo");
+  }
 }
