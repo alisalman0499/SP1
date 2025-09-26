@@ -1,5 +1,8 @@
-int mWidth = 900;
-int mHeight = 500;
+public int mWidth = 900; //Hovedprogrammet får en main Width værdi istedet
+public int mHeight = 500; //main Height.
+public int footer = height * 75/500;
+/* bruger disse værdier istedet så programmet ikke bliver ødelagt
+   når vi tilføjer ekstra plads og knapper nede i bunden. */
 Group [] groups = new Group[4];
 Country[] countries = new Country[16];
 String[] names = { "russia", "saudiarabia", "egypt", "uruguay", 
@@ -13,19 +16,21 @@ There is more information about this on the settings() reference page.
 - https://processing.org/reference/size_.html */
 
 void settings(){
-  size(mWidth, mHeight); /* max værdi for min bærbar på bredde er 1400,
+  size(1300, 800); /* max værdi for min bærbar på bredde er 1400,
   brug 777 som højde*/
+  mHeight = height * 500/575;
 }
 
 void setup(){
+  
   for (int i = 0; i < names.length; i++) {
     countries[i] = new Country(names[i], 0, 0); 
   }
   //Input ("Group Name", startX, startY)
   groups[0] = new Group("GROUP A", 0, 0, 0);
-  groups[1] = new Group("GROUP B", 0, height/2, 4);
+  groups[1] = new Group("GROUP B", 0, mHeight/2, 4);
   groups[2] = new Group("GROUP C", width/2, 0, 8);
-  groups[3] = new Group("GROUP D", width/2, height/2, 12);
+  groups[3] = new Group("GROUP D", width/2, mHeight/2, 12);
 }
 
 void draw(){
@@ -33,14 +38,19 @@ void draw(){
   background(46, 46, 69);
   // Tegn linjer der splitter grupperne
   stroke(255);
-  // Vandret linje
-  line(width/2, 0, width/2, height);
-  //Lodret linje
-  line(0, height/2, width, height/2);
+  drawLines();
   for (int i = 0; i < groups.length; i++){
     groups[i].display();
   }
   
   
-  
+}
+
+public void drawLines(){
+  // Lodret linje i midten
+  line(width/2, 0, width/2, mHeight);
+    //vandret linje
+  line(0, mHeight/2, width, mHeight/2);
+    //Tegner vandret linje i bunden af hovedprogrammet
+  line(0, mHeight, width, mHeight);
 }

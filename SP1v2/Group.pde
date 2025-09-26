@@ -3,8 +3,8 @@ class Group {
   
   float border = width * 10/900; // Border/Ramme værdien
   float w = width / 2 - border * 2; // Bredde for de hvide rektangler
-  float h = height * 0.08; // Højde for rektanglerne 40/500 = 0.08
-  float y_offset = height * 0.085; /* Offset for y så man tegner de hvide rektangler 
+  float h = mHeight * 0.08; // Højde for rektanglerne 40/500 = 0.08
+  float y_offset = mHeight * 0.085; /* Offset for y så man tegner de hvide rektangler 
   længere inde (42.5 / 500) = 0.085*/
   
   String groupName; // Gruppenavn bruges senere
@@ -26,7 +26,7 @@ class Group {
   }
   // Tegner/Viser rektanglerne
   void display() {
-    if (firstY < height / 2) { // If betingelse til at farve grupperne
+    if (firstY < mHeight / 2) { // If betingelse til at farve grupperne
       c = color(0, 255, 255); // Gemmer farven så vi kan bruge den senere
     } else {
       c = color(255, 255, 0);
@@ -34,7 +34,7 @@ class Group {
     fill(c);
     textAlign(CENTER, CENTER); // Sætter teksten i centrum vertikalt og horisontalt
     // Lavet en font, 22.5/500 = 0.045
-    myFont = createFont("Calibri Bold", (height * 0.045));
+    myFont = createFont("Calibri Bold", (mHeight * 0.045));
     textFont(myFont); // Loader fonten
     text(groupName, firstX, firstY, width / 2, h); // Viser tekst og sætter koordinater
  
