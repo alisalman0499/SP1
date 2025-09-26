@@ -46,7 +46,7 @@ class Group {
       
       // Tegner lille rektangel for enden til at indikere gruppe
       fill(c);
-      float smallOffset = (width * 15/500);
+      float smallOffset = (width * 15/900);
       rect(rectX + w - smallOffset, rectY + margin, smallOffset, h);
       
       int j = i + countingIndex; /* j-værdi til at kører igennem lande listen
