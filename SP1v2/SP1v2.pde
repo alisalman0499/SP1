@@ -14,21 +14,25 @@ place the size() function within the settings() function (instead of setup()).
 There is more information about this on the settings() reference page.
 - https://processing.org/reference/size_.html */
 
+//Brugte variables i size() så havde brug for settings metode.
+//Har valgt at efterlade det da slutresultatet er det samme.
 void settings(){
   size(1200, 800);
   mHeight = height * 500/575;
 }
 
 void setup(){
-  
+  //Hent navne fra names-listen og tilføj dem til countries objekt-listen
   for (int i = 0; i < names.length; i++) {
     countries[i] = new Country(names[i], 0, 0); 
   }
   //Input ("Group Name", startX, startY, countryNumber)
+  //Indtast hvor gruppen skal starte fra (så del skærmen op i fire mellem grupperne)
   groups[0] = new Group("GROUP A", 0, 0, 0);
   groups[1] = new Group("GROUP B", 0, mHeight/2, 4);
   groups[2] = new Group("GROUP C", width/2, 0, 8);
   groups[3] = new Group("GROUP D", width/2, mHeight/2, 12);
+  //Button-objekt 
   button = new Button(25, mHeight + (height - mHeight) * 1/4, 400, 50);
     // Baggrundsfarve
   background(46, 46, 69);
