@@ -24,7 +24,7 @@ class Group {
     rectY = firstY + y_offset;
     countingIndex = counNum;
   }
-  // Tegner/Viser rektanglerne
+  // Tegner/Viser gruppen
   void display() {
     if (firstY < mHeight / 2) { // If betingelse til at farve grupperne
       c = color(0, 255, 255); // Gemmer farven så vi kan bruge den senere
@@ -32,12 +32,7 @@ class Group {
       c = color(255, 255, 0);
     }
     fill(c);
-    textAlign(CENTER, CENTER); // Sætter teksten i centrum vertikalt og horisontalt
-    // Lavet en font, 22.5/500 = 0.045
-    myFont = createFont("Calibri Bold", (mHeight * 0.045));
-    textFont(myFont); // Loader fonten
-    text(groupName, firstX, firstY, width / 2, h); // Viser tekst og sætter koordinater
- 
+    displayGroupTitle();
     
     for (int i = 0; i < 4; i++){ //For loop til at tegne rektangler
       fill(255); //Skifter farve for rektangler til hvid
@@ -56,5 +51,13 @@ class Group {
       countries[j].display();
       countries[j].displayText();
     }
+  }
+  
+  void displayGroupTitle(){
+    textAlign(CENTER, CENTER); // Sætter teksten i centrum vertikalt og horisontalt
+    // Lavet en font, 22.5/500 = 0.045
+    myFont = createFont("Calibri Bold", (mHeight * 0.045));
+    textFont(myFont); // Loader fonten
+    text(groupName, firstX, firstY, width / 2, h); // Viser tekst og sætter koordinater
   }
 }

@@ -13,8 +13,8 @@ class Country {
   }
   void display(){
     //skaleringsværdier er sat i parentes så det er lidt mere overskueligt
-    image(photo, x - (width * 1/900), y + (mHeight * 0.25/500), 
-    (width * 8/90), (mHeight * 0.081)); 
+    image(photo, x, y, 
+    (width * 8/90) + (width * 1/900), (mHeight * (0.081 + 0.25/500))); 
     /* x - (width * 1/900) er der i stedet for bare x 
         for at sørge for der ikke er nogle hvide streger
         mellem billedet og det hvide rektangel
